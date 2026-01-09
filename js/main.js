@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-list li a');
+    const navMenu = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
     if (hamburger) {
         hamburger.addEventListener('click', () => {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 targetElement.scrollIntoView({

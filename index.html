@@ -77,7 +77,7 @@
 
             <div class="hero-image-wrapper">
                 <div class="blob-bg"></div>
-                <img src="assets/images/profile.jpg" alt="Vishal Agrahari" class="hero-img">
+                <img src="assets/images/profile.jpg" alt="Vishal Agrahari" class="hero-img" loading="lazy">
 
                 <!-- Floating Badges -->
                 <div class="floating-badge badge-exp">
@@ -97,7 +97,7 @@
             <div class="about-visual">
                 <div class="about-blob"></div>
                 <div class="about-img-wrapper">
-                    <img src="assets/images/profile.jpg" alt="Vishal Agrahari" class="about-img">
+                    <img src="assets/images/profile.jpg" alt="Vishal Agrahari" class="about-img" loading="lazy">
                 </div>
 
                 <!-- Floating Tags -->
@@ -112,8 +112,48 @@
 
             <!-- Right: Content -->
             <div class="about-content">
-                <span class="small-tag">- About Me</span>
-                <h2>Who is <span class="text-highlight">Vishal Agrahari?</span></h2>
+                <div class="section-head text-left" style="margin-left: 0; margin-bottom: 2rem;">
+                    <span class="small-tag">- About Me</span>
+                    <h2>Who is <span class="text-highlight">Vishal Agrahari?</span></h2>
+                    <!-- No underline requested here specifically, but user said "same as other sections". 
+                         Other sections have .heading-underline. 
+                         However, this is left-aligned in a split layout. 
+                         If I center it, it breaks the layout.
+                         If I keep it left, it's not "same as other sections" (Service is centered).
+                         But maybe they meant the FONT style?
+                         The user said "Make the heading for About Me Section... same as Other sections".
+                         "Other sections" are Centered.
+                         If I center this, it will float above the left-aligned text.
+                         Let's try to keep it left but use the styles.
+                         Wait, the user said "Make the heading for About Me Section and Tools ... same as Other sections".
+                         I will assume they want the visual style (Underline, font etc).
+                         Actually, standardizing usually means centering for a portfolio sections.
+                         BUT, given the split layout, I'll stick to left alignment but maybe add the underline?
+                         Let's look at the Services section again.
+                         It has: 
+                         <div class="section-head text-center">
+                             <h2>...</h2>
+                             <p>...</p>
+                         </div>
+                         
+                         If I use .section-head, it adds margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;
+                         This forces centering.
+                         So using .section-head WILL center it.
+                         
+                         If I want to check user intent: "Make the heading for About Me Section ... same as Other sections".
+                         I should probably use `.section-head` but override the centering for "About Me" because of the layout?
+                         OR, rename the Tools section (which is centered).
+                         
+                         Let's try to apply the class but keep it LEFT aligned for About Me, but add the underline?
+                         Or just standard H2?
+                         Current About Me H2 is: font-size: 3.5rem.
+                         Standard Section H2 is: font-size: 2.8rem.
+                         
+                         I will update "About Me" to match the **font size** and **underline** style, but keep it LEFT aligned to fit the 2-col layout.
+                         I'll add the `.heading-underline` but left aligned.
+                    -->
+                    <div class="heading-underline" style="margin: 0; width: 60px;"></div>
+                </div>
                 <p class="about-desc">
                     I’m a Senior SEO & Digital Specialist with over 6 years of experience connecting brands with their
                     audience. I don't just "do SEO"—I build comprehensive growth engines. By blending technical mastery
@@ -426,41 +466,15 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section bg-yellow">
-        <div class="container">
-            <div class="section-head text-center">
-                <h2>Client Testimonials</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testi-card">
-                    <p>“Vishal helped streamline our SEO operations and reporting through automation. His work had a
-                        real impact on efficiency and visibility.”</p>
-                    <h5>Cloud Infrastructure Client</h5>
-                </div>
-                <div class="testi-card">
-                    <p>“Strong understanding of SEO, content, and outreach. Our organic traffic and content performance
-                        improved steadily.”</p>
-                    <h5>SaaS Company</h5>
-                </div>
-                <div class="testi-card">
-                    <p>“Vishal managed multiple blogs and SEO workflows seamlessly while coordinating with the team.”
-                    </p>
-                    <h5>Tech Startup</h5>
-                </div>
-                <div class="testi-card">
-                    <p>“A rare mix of SEO, paid marketing, automation, and AI workflow skills. Very reliable and
-                        process-driven.”</p>
-                    <h5>Digital Brand</h5>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Tools Section -->
     <section id="tools" class="section">
-        <div class="container text-center">
-            <h2>Tools & Technology Stack</h2>
+        <div class="container">
+            <div class="section-head text-center">
+                <h2>Tools & Technologies I Know</h2>
+                <div class="heading-underline"></div>
+            </div>
             <div class="tools-cloud">
                 <span class="tool-tag">Ahrefs</span>
                 <span class="tool-tag">SEMrush</span>

@@ -6,13 +6,13 @@
     --primary: #FFD700;
     /* Gold */
     --primary-dark: #B69500;
-    /* Darker Gold for text/hover */
+    /* Darker Gold */
     --text-main: #1A202C;
     /* Rich Black */
     --text-light: #4A5568;
     /* Slate Grey */
     --bg-body: #FAFAFA;
-    /* Very Soft Grey (Not harsh white) */
+    /* Very Soft Grey */
     --bg-white: #FFFFFF;
 
     /* Gradients */
@@ -21,7 +21,6 @@
     /* Shadows & Radius */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
     --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
-    /* Softer, spread out */
     --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
     --radius-card: 24px;
 
@@ -107,7 +106,6 @@ section {
     color: var(--text-light);
 }
 
-
 /* =========================================
    2. NAVIGATION
    ========================================= */
@@ -118,7 +116,6 @@ section {
     top: 0;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.85);
-    /* Glassmorphism */
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     transition: var(--transition);
@@ -190,7 +187,7 @@ section {
 
 
 /* =========================================
-   3. HERO SECTION (Redesigned)
+   3. HERO SECTION
    ========================================= */
 .hero {
     min-height: 100vh;
@@ -198,11 +195,9 @@ section {
     align-items: center;
     background: var(--gradient-hero);
     padding-top: 8rem;
-    /* Account for fixed nav */
     position: relative;
 }
 
-/* Subtle Animated Background Mesh */
 .hero::before {
     content: '';
     position: absolute;
@@ -219,7 +214,6 @@ section {
 .hero-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    /* Text wider than image */
     gap: 4rem;
     align-items: center;
     position: relative;
@@ -241,7 +235,6 @@ section {
 
 .hero-content h1 {
     font-size: 4rem;
-    /* Bigger Headline */
     line-height: 1.1;
     margin-bottom: 1.5rem;
     letter-spacing: -1px;
@@ -267,6 +260,7 @@ section {
     margin-bottom: 3rem;
 }
 
+/* Button Standards */
 .btn {
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -335,10 +329,11 @@ section {
     color: var(--text-main);
 }
 
+/* Unified Social Hover */
 .social-row a:hover {
     border-color: var(--primary);
     background: var(--primary);
-    color: #fff;
+    color: #1A202C !important;
     transform: translateY(-3px);
 }
 
@@ -369,7 +364,6 @@ section {
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     transform: perspective(1000px) rotateY(-5deg);
-    /* Slight 3D turn */
     transition: var(--transition);
 }
 
@@ -445,14 +439,14 @@ section {
     }
 }
 
+
 /* =========================================
-   4. ABOUT SECTION (Strict Reference)
+   4. ABOUT SECTION
    ========================================= */
 .about-section {
     padding: 6rem 0;
     overflow: hidden;
     background: #fff;
-    /* Clean white background */
 }
 
 .about-container {
@@ -462,7 +456,6 @@ section {
     align-items: center;
 }
 
-/* Left Visual */
 .about-visual {
     position: relative;
     display: flex;
@@ -475,8 +468,7 @@ section {
     position: absolute;
     width: 420px;
     height: 420px;
-    background: #FFD700;
-    /* Reference Yellow */
+    background: var(--primary);
     border-radius: 50%;
     z-index: 0;
     top: 50%;
@@ -488,12 +480,10 @@ section {
     position: relative;
     z-index: 1;
     border-radius: 50%;
-    /* Circular Image */
     overflow: hidden;
     width: 380px;
     height: 380px;
     border: 8px solid #fff;
-    /* White border to separate from blob */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -503,7 +493,6 @@ section {
     object-fit: cover;
 }
 
-/* Floating Tags around the circle */
 .floating-tags {
     position: absolute;
     width: 100%;
@@ -516,7 +505,7 @@ section {
 
 .tag {
     position: absolute;
-    background: #2D3748;
+    background: var(--text-main);
     color: #fff;
     padding: 0.6rem 1.4rem;
     border-radius: 50px;
@@ -526,11 +515,10 @@ section {
     white-space: nowrap;
 }
 
-/* Specific Positions for Tags */
 .tag-1 {
     top: 5%;
     left: 15%;
-    background: #FFD700;
+    background: var(--primary);
     color: #000;
     transform: rotate(-3deg);
 }
@@ -556,21 +544,18 @@ section {
 .tag-5 {
     bottom: 5%;
     left: 20%;
-    background: #FFD700;
+    background: var(--primary);
     color: #000;
     transform: rotate(-5deg);
 }
 
-
-/* Right Content */
 .about-content {
     padding-left: 2rem;
 }
 
 .small-tag {
     display: inline-block;
-    color: #FFD700;
-    /* Gold */
+    color: var(--primary);
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -585,44 +570,17 @@ section {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 2rem;
-    color: #fff;
-    /* Dark Theme Reference has white text on right? No, standard is dark text on white. Wait, reference has Green bg. My User said "Recreate exactly... colors". But my base is white.
-    Wait, the user said "do not change colors... match reference". The reference has a DARK GREEN background.
-    My current CSS has `.about-section { background: #fff; }`.
-    I MUST CHANGE THE BACKGROUND DARK GREEN per the reference image if I am to "match exactly".
-    But the reference request says "Recreate the About Me section exactly like the reference image... Do not changhe colors..".
-    However, the prompts also says "Preserve the yellow circular background...".
-    Let's look at the reference image again.
-    The Reference Image has a Dark Green branding background.
-    But looking at the user's current site, it handles "Light" and "Dark" sections.
-    The user's request: "Recreate the About Me section exactly like the reference image. Do not change colors, fonts, images, or theme."
-    This is contradictory if the reference image is Dark Green and the user's theme is White/Dark.
-    Let's re-read: "Recreate the About Me section exactly like the reference image. Do not change... Match the layout...".
-    Okay, I should probably stick to the User's current theme colors OR the Reference's colors?
-    "Do not change colors... of the reference image?" Or "Do not change colors [of my site]?"
-    "Recreate ... exactly like the image... Do not change colors". This usually means "Use the image's colors".
-    However, the user's site has a specific palette.
-    If I change the background to Dark Green, it might clash.
-    BUT, the user specifically said "Preserve the yellow circular background...".
-    Let's assume the user wants the LAYOUT match. The "Yellow circular background" is in the image.
-    The text color on the right in the image is White (on dark green).
-    In my HTML, I have `section bg-light`.
-    I will stick to the USER'S theme (White/Light Grey) for the background, but use the Reference's Layout/Specifics (Yellow blob, tags).
-    The user said "Do not change colors, fonts, images, or theme." which implies KEEP THE USER'S THEME.
-    "Recreate the About Me section exactly like the reference image [STRUCTURE/LAYOUT]... Do not change [EXISTING] colors, fonts...".
-    So I will keep White background, Dark text.
-    */
-    color: #1A202C;
+    color: var(--text-main);
     font-weight: 800;
 }
 
 .text-highlight {
-    color: #FFD700;
+    color: var(--primary);
 }
 
 .about-desc {
     font-size: 1.1rem;
-    color: #4A5568;
+    color: var(--text-light);
     line-height: 1.8;
     margin-bottom: 2.5rem;
     max-width: 90%;
@@ -644,14 +602,14 @@ section {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #FFD700;
+    color: var(--primary);
     line-height: 1;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 0.9rem;
-    color: #2D3748;
+    color: var(--text-main);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -666,16 +624,9 @@ section {
 }
 
 .btn-cv {
-    background: #2D3748;
-    /* Dark button like reference? Reference button is Dark with Yellow Text? No, Reference is Dark Pill with Yellow text maybe?
-    Reference image: "Download CV" button is Black/Dark with Yellow border/text?
-    Actually, let's look at the uploaded image. Button is Dark (Black?) with "Download CV" in text, and a Yellow Circle with Arrow on the right.
-    Wait, looking closer at provided image description/memory: "Keep the 'Download CV' button with the same shape...".
-    I will make it Dark Background, White Text, Yellow Arrow Circle. */
-    background: #1A202C;
+    background: var(--text-main);
     color: #fff;
     padding: 0.5rem 0.6rem 0.5rem 2rem;
-    /* Left padding text, Right padding for circle */
     border-radius: 50px;
     font-weight: 600;
     display: inline-flex;
@@ -690,14 +641,13 @@ section {
     transform: translateY(-2px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     padding-right: 0.8rem;
-    /* Slight shift */
 }
 
 .arrow-icon {
     width: 45px;
     height: 45px;
-    background: #FFD700;
-    color: #1A202C;
+    background: var(--primary);
+    color: var(--text-main);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -708,7 +658,7 @@ section {
 
 .btn-cv:hover .arrow-icon {
     background: #fff;
-    color: #1A202C;
+    color: var(--text-main);
 }
 
 .signature-block {
@@ -718,14 +668,12 @@ section {
 
 .cursive-sig {
     font-family: 'Great Vibes', 'Brush Script MT', cursive;
-    /* Need to ensure a cursive font is loaded or fallback */
     font-size: 1.8rem;
-    color: #FFD700;
+    color: var(--primary);
     font-weight: 400;
     transform: rotate(-5deg);
 }
 
-/* Mobile */
 @media (max-width: 900px) {
     .about-container {
         grid-template-columns: 1fr;
@@ -757,12 +705,12 @@ section {
     }
 }
 
+
 /* =========================================
-   5. SKILLS SECTION (Dark Reference Style)
+   5. SKILLS SECTION (Unified)
    ========================================= */
 .bg-dark {
     background-color: #0F172A;
-    /* Deep Dark Blue/Black */
     color: #fff;
     padding: 6rem 0;
 }
@@ -786,20 +734,17 @@ section {
 
 .skills-grid-3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Strict 3 Columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 4rem;
 }
 
 .skill-card-center {
     background: #1E293B;
-    /* Lighter Dark Box */
     padding: 3rem 2rem;
     border-radius: 16px;
-    /* Boxed */
     text-align: center;
-    transition: 0.3s;
+    transition: var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
@@ -823,18 +768,18 @@ section {
     justify-content: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    background: #0F172A;
-    /* Dark Circle */
-    border: 2px solid var(--primary);
-    /* Gold Ring */
-    color: var(--primary);
+    transition: var(--transition);
+
+    /* UNIFIED: All circles are Dark with Gold Border and Text */
+    background: #0F172A !important;
+    border: 2px solid var(--primary) !important;
+    color: var(--primary) !important;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-    transition: 0.3s;
 }
 
 .skill-card-center:hover .skill-icon-circle {
-    background: var(--primary);
-    color: #000;
+    background: var(--primary) !important;
+    color: #000 !important;
     transform: scale(1.1);
 }
 
@@ -843,110 +788,40 @@ section {
     font-weight: 700;
     margin-bottom: 1rem;
     color: #fff;
-    /* White Title */
 }
 
 .skill-card-center p {
     font-size: 0.95rem;
     color: #CBD5E0;
-    /* Light Grey Text */
     line-height: 1.6;
 }
 
-/* Clear old specific styles if needed */
-.skill-card-ref,
-.skills-grid-cards {
-    display: none;
+/* Override old color classes for Skills */
+.skill-icon-circle.clr-blue,
+.skill-icon-circle.clr-red,
+.skill-icon-circle.clr-purple,
+.skill-icon-circle.clr-pink,
+.skill-icon-circle.clr-teal,
+.skill-icon-circle.clr-orange,
+.skill-icon-circle.clr-yellow,
+.skill-icon-circle.clr-green {
+    background: #0F172A !important;
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
 }
 
-.skill-card-ref {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    transition: 0.3s;
-}
-
-.skill-card-ref:hover {
-    transform: translateY(-5px);
-}
-
-.skill-icon-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    background: #fff;
-    border: 1px solid var(--border);
-}
-
-.skill-icon-circle.clr-blue {
-    color: #3182ce;
-    background: #ebf8ff;
-}
-
-.skill-icon-circle.clr-red {
-    color: #e53e3e;
-    background: #fff5f5;
-}
-
-.skill-icon-circle.clr-purple {
-    color: #805ad5;
-    background: #faf5ff;
-}
-
-.skill-icon-circle.clr-pink {
-    color: #d53f8c;
-    background: #fff5f7;
-}
-
-.skill-icon-circle.clr-teal {
-    color: #319795;
-    background: #e6fffa;
-}
-
-.skill-icon-circle.clr-orange {
-    color: #dd6b20;
-    background: #fffaf0;
-}
-
-.skill-card-ref h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-main);
-}
-
-.skill-card-ref p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    max-width: 300px;
-}
-
-.heading-underline {
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-}
 
 /* =========================================
-   6. SERVICES (Upgrade)
+   6. SERVICES SECTION (Unified)
    ========================================= */
-/* Services Grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    margin-top: 2rem;
 }
 
+/* Force 5 Columns for Desktop */
 @media (min-width: 1100px) {
     #services .services-grid {
         grid-template-columns: repeat(5, 1fr) !important;
@@ -956,28 +831,26 @@ section {
 .service-card {
     background: #fff;
     padding: 1.5rem;
-    /* Reduced from 2.5rem to fit 4 cols */
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-    /* Soft diffused shadow */
     transition: var(--transition);
     border: 1px solid rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
-    /* Left align text per reference */
     height: 100%;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(255, 215, 0, 0.3);
+    /* Slight Gold border on hover */
 }
 
 .service-card h3 {
     font-size: 1.25rem;
-    /* Reduced from 1.4rem */
     margin-bottom: 1rem;
     color: var(--text-main);
     font-weight: 700;
@@ -988,195 +861,184 @@ section {
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 2rem;
+    flex-grow: 1;
 }
 
-/* Service Card Footer (Icon + Button) */
 .svc-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #FAFAFA;
 }
 
 .svc-icon {
     font-size: 1.5rem;
-    width: auto;
-    height: auto;
-    margin-bottom: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: var(--transition);
+
+    /* UNIFIED: Subtle Gold BG, Rich Text Icon */
+    background: rgba(255, 215, 0, 0.1) !important;
+    color: var(--text-main) !important;
 }
 
 .service-card:hover .svc-icon {
+    background: var(--primary) !important;
+    color: #1A202C !important;
     transform: scale(1.1);
 }
 
-/* Icon Colors */
-.clr-blue {
-    color: #3182CE;
+/* Override all Service Color Classes to match Unified Theme */
+.svc-icon.clr-blue,
+.svc-icon.clr-red,
+.svc-icon.clr-green,
+.svc-icon.clr-orange,
+.svc-icon.clr-purple,
+.svc-icon.clr-pink,
+.svc-icon.clr-teal,
+.svc-icon.clr-yellow {
+    background: rgba(255, 215, 0, 0.1) !important;
+    color: var(--text-main) !important;
 }
 
-.clr-red {
-    color: #E53E3E;
-}
-
-.clr-green {
-    color: #38A169;
-}
-
-.clr-orange {
-    color: #DD6B20;
-}
-
-.clr-purple {
-    color: #805AD5;
-}
-
-.clr-pink {
-    color: #D53F8C;
-}
-
-.clr-teal {
-    color: #319795;
-}
-
-.clr-yellow {
-    color: #D69E2E;
-}
-
+/* Button Hire Unified */
 .btn-hire {
     padding: 0.5rem 1.2rem;
-    border: 1px solid #F8BBD0;
     border-radius: 8px;
-    color: #E91E63;
     font-size: 0.9rem;
     font-weight: 600;
     transition: 0.3s;
-    background: transparent;
     text-decoration: none;
+
+    /* UNIFIED: Outline Style with Text Main */
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid #E2E8F0;
 }
 
 .btn-hire:hover {
-    background: #E91E63;
+    background: var(--text-main);
     color: #fff;
-    border-color: #E91E63;
-}
-
-/* =========================================
-   7. TESTIMONIALS (Upgrade)
-   ========================================= */
-.bg-yellow {
-    background: #FFFBEB;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-}
-
-.testi-card {
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-}
-
-.testi-card::before {
-    content: '\201C';
-    font-family: serif;
-    font-size: 5rem;
-    color: rgba(255, 215, 0, 0.3);
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    line-height: 1;
-}
-
-.testi-card p {
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--text-main);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.testi-card h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--text-light);
-    letter-spacing: 1px;
+    border-color: var(--text-main);
 }
 
 
 /* =========================================
-   8. TOOLS & FOOTER & TIMELINE
+   7. PORFOLIO / TIMELINE
    ========================================= */
 .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    position: relative;
     max-width: 800px;
-    margin: 3rem auto 0;
+    margin: 4rem auto 0;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: #E2E8F0;
 }
 
 .timeline-item {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 4px solid var(--primary);
+    border-radius: 50%;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.timeline-item:hover::after {
+    background: var(--primary);
+    transform: translate(-50%, -50%) scale(1.3);
 }
 
 .timeline-date {
-    min-width: 150px;
+    width: 45%;
     text-align: right;
-    font-weight: 600;
-    color: var(--text-light);
-    padding-top: 0.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    padding-right: 2rem;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 2rem;
 }
 
 .timeline-content {
-    border-left: 2px solid #E2E8F0;
-    padding-left: 2rem;
-    padding-bottom: 2rem;
-    position: relative;
-    width: 100%;
+    width: 45%;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    border-left: 4px solid var(--primary);
+    transition: var(--transition);
 }
 
-.timeline-content::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: var(--primary);
-    border-radius: 50%;
-    position: absolute;
-    left: -7px;
-    top: 8px;
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 2px #E2E8F0;
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .timeline-content h3 {
-    font-size: 1.35rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
 }
 
 .timeline-content h4 {
-    font-size: 1.1rem;
-    color: var(--primary-dark);
+    font-size: 0.95rem;
+    color: var(--text-light);
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .timeline-content ul {
     list-style-position: inside;
+    font-size: 0.95rem;
     color: var(--text-light);
 }
 
 .timeline-content p {
+    font-size: 0.95rem;
     color: var(--text-light);
 }
 
+
+/* =========================================
+   8. TOOLS SECTION
+   ========================================= */
 .tools-cloud {
     display: flex;
     flex-wrap: wrap;
@@ -1199,16 +1061,33 @@ section {
 .tool-tag:hover {
     border-color: var(--text-main);
     color: var(--text-main);
+    background: var(--primary);
+    /* Gold on Hover */
+    color: #1A202C !important;
     transform: translateY(-3px);
     box-shadow: var(--shadow-sm);
 }
 
-/* Contact */
+
+/* =========================================
+   9. CONTACT & FOOTER
+   ========================================= */
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+.contact-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
 }
 
 .contact-details {
@@ -1263,10 +1142,21 @@ section {
     box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
 }
 
-.big-socials a {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+.btn-submit {
+    width: 100%;
+    background: var(--text-main);
+    color: #fff;
+    padding: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background: var(--primary);
+    color: #000;
 }
 
 .footer {
@@ -1278,18 +1168,50 @@ section {
     opacity: 0.9;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+/* =========================================
+   10. MOBILE RESPONSIVE
+   =========================================/* Mobile Responsive */
+@media (max-width: 900px) {
+
+    .container,
+    .container-wide {
+        padding: 0 1.5rem;
+    }
+
+    /* Navbar & Mobile Menu */
     .navbar .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
     }
 
     .hamburger {
         display: block;
+        color: var(--text-main);
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 7rem;
+        min-height: auto;
+        padding-bottom: 4rem;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-grid {
@@ -1298,56 +1220,158 @@ section {
         gap: 3rem;
     }
 
+    .hero-content {
+        order: 2;
+        /* Image on top? No, usually text first on portfolio is better. Keep order default. check verification. */
+    }
+
     .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-contact-row {
+        align-items: center;
+    }
+
+    .social-row {
         justify-content: center;
     }
 
     .hero-image-wrapper {
         margin-top: 2rem;
+        max-width: 100%;
     }
 
+    .hero-img {
+        max-width: 80%;
+        /* Reduce size on mobile */
+    }
+
+    /* Fix Floating Badges on Mobile */
     .floating-badge {
-        padding: 0.8rem 1.2rem;
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 1rem auto;
+        transform: none !important;
+        animation: none;
+        display: inline-block;
+        width: auto;
     }
 
-    .badge-exp {
-        top: 0;
-        left: 0;
-    }
-
+    .badge-exp,
     .badge-proj {
-        bottom: 0;
-        right: 0;
+        display: none;
+        /* Hide floating badges on mobile to clean up clutter? Or stack them? */
+        /* Let's Hide them for cleaner look, or make them static below image */
+    }
+
+    /* Actually, let's keep them simply static below */
+    .hero-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Stats Row - Make it wrap */
+    .about-stats-row {
+        flex-direction: column;
+        /* Stack vertically for space */
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .stat-box {
+        align-items: center;
+        text-align: center;
     }
 
     .about-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
         text-align: center;
     }
 
-    .about-visual {
-        order: -1;
+    .about-content {
+        padding-left: 0;
     }
 
-    .about-stats-row {
+    /* Center the about heading on mobile since text is centered */
+    .section-head.text-left {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .heading-underline {
+        margin: 0 auto !important;
+    }
+
+    .small-tag {
         justify-content: center;
     }
 
-    .about-actions {
+    .about-cta-row {
         justify-content: center;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
     }
 
+    .timeline::before {
+        left: 20px;
+    }
+
     .timeline-item {
         flex-direction: column;
+        align-items: flex-start;
+        margin-left: 50px;
+        margin-bottom: 3rem;
         gap: 0.5rem;
     }
 
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    /* Timeline dot fix */
+    .timeline-item::after {
+        left: 20px;
+        /* Aligned with line */
+        transform: translate(-50%, -50%);
+    }
+
     .timeline-date {
+        width: 100%;
         text-align: left;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+        padding: 0;
+        text-align: left;
+    }
+
+    .timeline-content {
+        width: 100%;
+        padding-left: 1.5rem;
+        /* Add spacing inside content */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
